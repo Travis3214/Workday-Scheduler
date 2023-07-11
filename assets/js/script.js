@@ -2,12 +2,30 @@
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 
-const currentTime =  dayjs();
-console.log(currentTime.format("MM/DD/YYYY h:mm A"));
+
+
+
+
+
 
 $(document).ready(function () {
 
+// This is a function to get todays current time and date on the page //
+function today(){
+
+const currentTime =  dayjs().format('hh:mm:ss A');
+const time = $('#currentTime');
+const date =$('#currentDate');
+const currentDate = dayjs().format('MM/DD/YYYY');
+date.text(currentDate);
+time.text(currentTime);
+setInterval(today,1000);
+
   
+}
+today();
+  
+
 });
 
 // TODO: Add a listener for click events on the save button. This code should
