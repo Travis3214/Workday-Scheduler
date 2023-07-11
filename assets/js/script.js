@@ -21,10 +21,10 @@ date.text(currentDate);
 time.text(currentTime);
 setInterval(today,1000);
 
-  
 }
 today();
   
+function 
 
 });
 
