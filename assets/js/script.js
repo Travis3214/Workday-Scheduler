@@ -10,9 +10,10 @@
 
 $(document).ready(function () {
 
+timeForBlock = dayjs().format('H');
+
 // This is a function to get todays current time and date on the page //
 function today(){
-
 const currentTime =  dayjs().format('hh:mm:ss A');
 const time = $('#currentTime');
 const date =$('#currentDate');
@@ -20,11 +21,21 @@ const currentDate = dayjs().format('MM/DD/YYYY');
 date.text(currentDate);
 time.text(currentTime);
 setInterval(today,1000);
-
 }
 today();
-  
-function 
+
+// This function is to toggle the id of the past present and future tags //
+function whichTense() {
+
+  $('time-block').each(function(){
+    const timespot = parseInt(this.id);
+        $(this).toggleClass('past', timespot < timeForBlock);
+        $(this).toggleClass('present', timespot === timeForBlock);
+        $(this).toggleClass('future', timespot > timeForBlock);
+  })
+}
+
+
 
 });
 
