@@ -3,42 +3,53 @@
 // in the html.
 
 
-
-
-
-
-
 $(document).ready(function () {
 
-timeForBlock = dayjs().format('H');
+// Needed constants for functions //
+const timespot = parseInt(this.id);
+const timeForBlock = dayjs().format('H');
 
 // This is a function to get todays current time and date on the page //
-function today(){
+function todaysInfo(){
 const currentTime =  dayjs().format('hh:mm:ss A');
 const time = $('#currentTime');
-const date =$('#currentDate');
 const currentDate = dayjs().format('MM/DD/YYYY');
+const date =$('#currentDate');
 date.text(currentDate);
 time.text(currentTime);
-setInterval(today,1000);
+setInterval(todaysInfo,1000);
 }
-today();
+todaysInfo();
 
-// This function is to toggle the id of the past present and future tags //
-function whichTense() {
+// This function is to toggle the id to the past present and future tags //
+function whichTense(){
 
-  $('time-block').each(function(){
-    const timespot = parseInt(this.id);
-        $(this).toggleClass('past', timespot < timeForBlock);
+  $('.time-block').each(function(){
+        $(this).toggleClass('past', timespot > timeForBlock);
         $(this).toggleClass('present', timespot === timeForBlock);
-        $(this).toggleClass('future', timespot > timeForBlock);
-  })
+        $(this).toggleClass('future', timespot < timeForBlock);
+  });
 }
+whichTense();
 
+// This function is to change the color of the timepsot depending on the current time //
+function changeColor (){
+
+  $('.time-block').each(function(){
+    if (timespot > timeForBlock) {
+      $(this).removeClass('present future').addClass('past');
+    } else if (timespot == timeForBlock){
+      $(this).removeClass('past future').addClass('present');
+    } else {
+      $(this).removeClass('past present').addClass('future');
+    }
+  }
+  )};
+
+changeColor();
 
 
 });
-
 // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
   // local storage. HINT: What does `this` reference in the click listener
