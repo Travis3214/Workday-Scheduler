@@ -8,10 +8,10 @@ This is a scheduler you can use to help schedule out your busy day. Fill in the 
 N/A
 
 ## Usage
-Link
+https://travis3214.github.io/Workday-Scheduler/
 
 ## License
 N/A
 
 ## Screenshot
-![Workday-Scheduler](file)
+![Workday-Scheduler](./assets/images/Screenshot%202023-07-11%20at%2010.21.06%20PM.png)

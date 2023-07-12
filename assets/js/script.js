@@ -13,21 +13,21 @@ const date =$('#currentDate');
 date.text(currentDate);
 time.text(currentTime);
 setInterval(todaysInfo,1000);
-}
+};
 todaysInfo();
 
 // This function is to toggle the id to the past present and future tags //
 function whichTense(){
 
   $('.time-block').each(function(){
-        $(this).toggleClass('past', timespot > timeForBlock);
+        $(this).toggleClass('past', timespot < timeForBlock);
         $(this).toggleClass('present', timespot === timeForBlock);
-        $(this).toggleClass('future', timespot < timeForBlock);
+        $(this).toggleClass('future', timespot > timeForBlock);
   });
 }
 whichTense();
 
-// This function is to change the color of the timepsot depending on the current time //
+// This function is to change the color of the timepsot depending on the tense //
 function changeColor (){
 
   $('.time-block').each(function(){
